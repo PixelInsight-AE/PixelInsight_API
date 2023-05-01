@@ -20,9 +20,7 @@ app.post("/api/OMDB", async (request, response) => {
   console.log(movieSearch);
   try {
     const movie = await fetch(
-      `https://www.omdbapi.com/?s=${movieSearch}&apikey=${
-        process.env.OMDB_API_KEY || 73740781
-      }`
+      `https://www.omdbapi.com/?s=${movieSearch}&apikey=${process.env.OMDB_API_KEY}`
     )
       .then((res) => res.json())
       .then((data) => data.Search);
@@ -35,7 +33,7 @@ app.post("/api/OMDB", async (request, response) => {
   }
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);
 });
