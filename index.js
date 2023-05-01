@@ -14,7 +14,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Welcome to Pixel API Server");
+  res.send("Welcome to Pixel APi");
 });
 
 app.post("/api/OMDB", async (request, response) => {
