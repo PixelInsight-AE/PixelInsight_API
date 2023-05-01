@@ -13,9 +13,26 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/api", async (request, response) => {
+app.post("/api/OMDB", async (request, response) => {
   console.log(request.body);
-  response.status(200).send({ message: "success" });
+  // response.status(200).send({ message: "success" });
+  const { movieSearch } = request.body;
+  console.log(movieSearch);
+  try {
+    const movie = await fetch(
+      `https://www.omdbapi.com/?s=${movieSearch}&apikey=${
+        process.env.OMDB_API_KEY || 73740781
+      }`
+    )
+      .then((res) => res.json())
+      .then((data) => data.Search);
+
+    console.log(movie);
+    response.status(200).send(movie);
+  } catch (error) {
+    console.log(error);
+    response.status(500).send({ message: "error" });
+  }
 });
 
 const port = process.env.PORT || 3000;
