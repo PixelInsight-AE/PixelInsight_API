@@ -13,6 +13,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/", (req, res) => {
+  res.send("Welcome to Pixel APi");
+});
+
 app.post("/api/OMDB", async (request, response) => {
   console.log(request.body);
   // response.status(200).send({ message: "success" });
