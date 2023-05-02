@@ -34,4 +34,8 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/", (req, res) => {
+  res.send("Welcome to the OPENAI API");
+});
+
 export default router;

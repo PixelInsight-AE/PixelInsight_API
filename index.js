@@ -19,10 +19,6 @@ app.get("/", (req, res) => {
   res.send("Welcome to Pixel APi");
 });
 
-app.get("/api/OPENAI", (req, res) => {
-  res.send("Welcome to Pixel APi");
-});
-
 //? calling the OMDBRouter from endpoints/OMDB.js
 app.use("/api/OMDB", OMDBRouter);
 
